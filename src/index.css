@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-gray-200 dark:border-dark-border;
+  }
+  
+  body {
+    @apply bg-white dark:bg-dark-bg text-gray-900 dark:text-gray-100 transition-colors duration-300;
+    font-family: 'Inter Variable', system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-mocha-600 hover:bg-mocha-700 text-white rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-transparent border-2 border-mocha-600 text-mocha-600 dark:text-mocha-400 hover:bg-mocha-600 hover:text-white rounded-lg font-medium transition-all duration-300;
+  }
+
+  .card {
+    @apply bg-white dark:bg-dark-card rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-200 dark:border-dark-border;
+  }
+
+  .section-title {
+    @apply text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mb-4;
+  }
+
+  .section-subtitle {
+    @apply text-lg md:text-xl text-gray-600 dark:text-gray-400 mb-12;
+  }
+
+  .glassmorphism {
+    @apply bg-white/70 dark:bg-dark-card/70 backdrop-blur-lg border border-gray-200/50 dark:border-dark-border/50;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-mocha-600 to-mocha-800;
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+  }
+
+  @keyframes gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-dark-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-mocha-500 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-mocha-600;
+}
+
+/* Selection */
+::selection {
+  @apply bg-mocha-500 text-white;
+}
