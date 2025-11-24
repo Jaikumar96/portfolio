@@ -1,4 +1,7 @@
-# Jaikumar R - Portfolio Website
+# Jaikumar R – Portfolio Website
+
+Visit my portfolio: **https://jaikumarr.me/**
+
 
 A modern, interactive portfolio website built with React 19, TypeScript, Vite, and Tailwind CSS featuring smooth animations, dark mode, and responsive design.
 
