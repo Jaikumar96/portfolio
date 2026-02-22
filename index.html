@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -29,13 +29,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <title>Jaikumar R - Software Developer & AI Enthusiast</title>
-    <script type="module" crossorigin src="/assets/index-i-pNazeF.js"></script>
+    <script type="module" crossorigin src="/assets/index-2YIx0lTv.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/react-vendor-C56AVnVk.js">
     <link rel="modulepreload" crossorigin href="/assets/animation-vendor-CZvM9J0k.js">
     <link rel="modulepreload" crossorigin href="/assets/icons-vendor-C6PDLn1q.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-COwhjB41.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-CAwN7-9M.css">
   </head>
   <body>
+    <!-- Invisible SVG filters for liquid glass refraction & distortion -->
+    <svg id="glass-filters" aria-hidden="true" focusable="false"
+         style="position:absolute;width:0;height:0;overflow:hidden;pointer-events:none">
+      <defs>
+        <!-- Liquid distortion: turbulence + displacement for background warping -->
+        <filter id="liquid-glass-distort" x="-10%" y="-10%" width="120%" height="120%" color-interpolation-filters="sRGB">
+          <feTurbulence type="fractalNoise" baseFrequency="0.018 0.032" numOctaves="3" seed="3" result="turbulence"/>
+          <feDisplacementMap in="SourceGraphic" in2="turbulence" scale="5" xChannelSelector="R" yChannelSelector="G" result="displaced"/>
+          <feGaussianBlur in="displaced" stdDeviation="0.4" result="softened"/>
+          <feComposite in="softened" in2="SourceGraphic" operator="over"/>
+        </filter>
+        <!-- Frosted edge blur for soft glass boundaries -->
+        <filter id="glass-edge-blur" x="-5%" y="-5%" width="110%" height="110%">
+          <feGaussianBlur stdDeviation="1.2" result="blur"/>
+          <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+        </filter>
+        <!-- Chromatic aberration split for prismatic card edges -->
+        <filter id="glass-chromatic" x="-2%" y="-2%" width="104%" height="104%" color-interpolation-filters="sRGB">
+          <feOffset in="SourceGraphic" dx="1.5" dy="0" result="red-shift"/>
+          <feOffset in="SourceGraphic" dx="-1.5" dy="0" result="blue-shift"/>
+          <feBlend in="red-shift" in2="blue-shift" mode="screen" result="chromatic"/>
+          <feComposite in="SourceGraphic" in2="chromatic" operator="over"/>
+        </filter>
+      </defs>
+    </svg>
     <div id="root"></div>
   </body>
 </html>
